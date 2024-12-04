@@ -1,0 +1,21 @@
+::ng-deep .p-dropdown-label{
+  padding: 6px;
+}
+::ng-deep .p-dropdown-item{
+  padding: 6px;
+}
+::ng-deep .p-dropdown-items{
+  padding: 0px;
+}
+::ng-deep .p-confirm-popup-accept
+{
+
+    background-color: #ff0303 !important;
+  border: 0 !important;
+  padding: 6px 17px !important;
+}
+
+::ng-deep .p-confirm-popup-reject{
+
+  padding: 6px 17px !important;
+}

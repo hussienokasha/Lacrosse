@@ -1,0 +1,11 @@
+.baner {
+  background-blend-mode: multiply;
+  background-color: rgba(18, 90, 66, 0.8); 
+  opacity: 0.8;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      rgba(15, 66, 49, 0.8) 10px
+    ),
+    repeating-linear-gradient(rgba(43, 156, 100, 0.5), rgba(22, 87, 42, 0.5));
+}

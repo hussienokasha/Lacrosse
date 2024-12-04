@@ -1,0 +1,40 @@
+::ng-deep .p-accordion-header-link {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 10px 6px;
+  background-color: transparent;
+  border: 0;
+  color: white;
+  gap: 3px;
+}
+::ng-deep .p-accordion-content {
+  padding: 6px;
+  color: white;
+  background-color: transparent;
+  border: 0;
+}
+
+::ng-deep .p-dropdown-label {
+  padding: 5px;
+}
+
+::ng-deep .p-dropdown-items {
+  padding: 0px;
+}
+::ng-deep .p-dropdown-item {
+  padding: 5px;
+}
+
+::ng-deep .p-ripple.p-element {
+  box-shadow: none;
+  padding: 5px 20px;
+}
+::ng-deep .p-menu-overlay{
+  padding: 0;
+}
+::ng-deep .p-submenu-header{
+  padding: 0;
+}
+::ng-deep .p-menuitem-link{
+  padding: 17px !important;
+}

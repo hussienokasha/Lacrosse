@@ -1,0 +1,55 @@
+<div>
+  <form class="space-y-3" [formGroup]="memberForm" (ngSubmit)="addMember()">
+    <p-selectButton
+    [options]="langOptions"
+    formControlName="LangId"
+    optionLabel="label"
+    optionValue="value"
+  />
+    <div class="flex gap-3">
+      <input
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Member Name"
+        formControlName="Name"
+      />
+      <input
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Position"
+        formControlName="Position"
+      />
+    </div>
+
+    <div class="border rounded-md p-3 flex justify-between items-center">
+
+      <input
+        type="file"
+        accept="image/*"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        formControlName="file"
+        (change)="ImageChange($event)"
+      />
+      @if(imagePreview){
+
+        <img  [src]="imagePreview" alt="Selected Image" class="mt-2  h-32 rounded-lg object-cover">
+      }
+    </div>
+
+    <div class="flex gap-3">
+      <button
+        type="submit"
+        class="w-full rounded-md text-white bg-green-700 border p-1 border-green-700 transition duration-100"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100"
+        (click)="dialofRef.close()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

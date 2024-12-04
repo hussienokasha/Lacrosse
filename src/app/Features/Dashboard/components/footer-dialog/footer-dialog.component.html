@@ -1,0 +1,78 @@
+<div>
+  <form [formGroup]="footerForm" (ngSubmit)="addFooterData()" class="space-y-3">
+    <p-dropdown
+      [options]="langOptions"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="Select a Language"
+      styleClass="mb-4 shadow-none"
+      formControlName="LangId"
+    />
+    <div class="flex gap-3">
+      <input
+        formControlName="Title"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Enter Title"
+      />
+      <input
+        formControlName="LinkedInLink"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Enter LinkedIn Link"
+      />
+    </div>
+
+    <div class="flex gap-3">
+      <input
+        formControlName="InstagramLink"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Enter Instagram Link"
+      />
+
+      <input
+        formControlName="TwitterLink"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Enter Twitter Link"
+      />
+    </div>
+
+    <div class="border rounded-md p-3 flex justify-between items-center">
+      <input
+        id="file"
+        formControlName="file"
+        (change)="onFileChange($event)"
+        type="file"
+        accept="image/*"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+      />
+      @if(imgFile){
+      <img
+        [src]="imgPreview"
+        alt=""
+        class="rounded-lg w-52 h-32 object-cover"
+      />
+      }
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex gap-3">
+      <button
+        (click)="addFooterData()"
+        type="submit"
+        class="w-full rounded-md text-white bg-green-700 border p-1 border-green-700 transition duration-100"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100"
+        (click)="ref.close()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+<div>
+  <form class="space-y-3" [formGroup]="programForm">
+    <p-selectButton
+      [options]="langOptions"
+      formControlName="LangId"
+      optionLabel="label"
+      optionValue="value"
+      styleClass="border-0"
+
+    />
+    <input
+      type="text"
+      class="w-full rounded-md focus:ring-0 focus:border-green-700"
+      placeholder="Name"
+      formControlName="Name"
+    />
+    <textarea
+      type="text"
+      class="w-full rounded-md focus:ring-0 focus:border-green-700"
+      placeholder="Description"
+      rows="4"
+      formControlName="Description"
+    ></textarea>
+
+    <div class="flex justify-between items-center">
+      <input
+        type="file"
+        (change)="onFileChange($event)"
+        accept="image/*"
+        formControlName="file"
+      />
+      @if(imgPreview){
+      <img
+        [src]="imgPreview"
+        alt=""
+        class="rounded-md w-52 h-32 object-cover"
+      />
+      }
+    </div>
+
+    <div class="flex gap-3">
+      <button
+        (click)="addProgram()"
+        [disabled]="!programForm.valid"
+        type="submit"
+        class="w-full rounded-md text-white bg-green-700 border p-1 border-green-700 invalid:bg-green-300"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100"
+        (click)="ref.close()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<div
+  class="container py-12"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-offset="400"
+>
+  <div class="bg-green-700 p-5 rounded-xl text-center text-white">
+    <h1 class="text-4xl font-medium py-3">Our Achievement</h1>
+    <p class="text-lg">{{ achievement?.title }}</p>
+    <div class="columns-2 md:columns-4 space-y-3 py-7">
+      <div>
+        <p class="text-3xl md:text-5xl font-bold text-yellow-200">
+          {{ achievement?.trainingSites }}
+        </p>
+        <span class="text-lg md:text-2xl font-medium">Training Sites</span>
+      </div>
+
+      <div>
+        <p class="text-3xl md:text-5xl font-bold text-yellow-200">
+          {{ achievement?.maleStudents }}
+        </p>
+        <span class="text-lg md:text-2xl font-medium">Male Students</span>
+      </div>
+      <div>
+        <p class="text-3xl md:text-5xl font-bold text-yellow-200">
+          {{ achievement?.femaleStudents }}
+        </p>
+        <span class="text-lg md:text-2xl font-medium">Female Students</span>
+      </div>
+      <div>
+        <p class="text-3xl md:text-5xl font-bold text-yellow-200">
+          {{ achievement?.trainersTitle }}
+        </p>
+        <span class="text-lg md:text-2xl font-medium">Coaches</span>
+      </div>
+    </div>
+  </div>
+</div>

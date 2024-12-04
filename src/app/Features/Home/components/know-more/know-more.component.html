@@ -1,0 +1,39 @@
+<div
+  class="max-w-screen-lg text-center p-7 m-auto"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-offset="600"
+>
+  <h1 class="font-medium text-4xl py-6">{{ homeContent?.videoTitle }}</h1>
+
+  <div class="relative h-fit">
+    <!-- Video element -->
+    <video
+      #videoPlayer
+      [src]="homeContent?.videoPath"
+      class="rounded-lg shadow-xl w-full h-full"
+      (click)="pauseVideo(videoPlayer)"
+    ></video>
+
+    <!-- Play button -->
+    @if(showPlaceholder){
+
+    <button
+      (click)="playVideo(videoPlayer)"
+      class="absolute z-20 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full h-10 w-10"
+    >
+      <i class="fa-regular fa-circle-play text-white text-6xl"></i>
+    </button>
+    }
+
+    <!-- Image Placeholder -->
+    @if(showPlaceholder){
+
+    <img
+      class="absolute left-0 top-0 w-full h-full object-cover brightness-50 rounded-lg shadow-xl"
+      [src]="homeContent?.videoImage"
+      alt="Placeholder "
+    />
+    }
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="container">
+  <p-dropdown
+    [options]="langOptions"
+    optionLabel="label"
+    optionValue="value"
+    [placeholder]="'Select a Language'|translate"
+    styleClass="mb-4 shadow-none"
+    [formControl]="selectedLang"
+    (onChange)="getAboutContent()"
+  />
+  <form [formGroup]="aboutForm" class="space-y-3" (ngSubmit)="updateAbout()">
+    <div>
+      <label for="title" class="block text-lg font-semibold">{{
+        "Title" | translate
+      }}</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="Title"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        [placeholder]="'Enter Title'|translate"
+      />
+    </div>
+    <div>
+      <label for="d1" class="block text-lg font-semibold"
+        >{{ "Description" | translate }} 1</label
+      >
+      <textarea
+        id="d1"
+        type="text"
+        rows="4"
+        formControlName="Description1"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        [placeholder]="'Enter Description'|translate"
+      ></textarea>
+    </div>
+    <div>
+      <label for="d2" class="block text-lg font-semibold"
+        >{{ "Description" | translate }} 2</label
+      >
+      <textarea
+        id="d2"
+        type="text"
+        rows="4"
+        formControlName="Description2"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        [placeholder]="'Enter Description'|translate"
+      ></textarea>
+    </div>
+    <div>
+      <label for="d3" class="block text-lg font-semibold"
+        >{{ "Description" | translate }} 3</label
+      >
+      <textarea
+        id="d3"
+        type="text"
+        rows="4"
+        formControlName="Description3"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        [placeholder]="'Enter Description'|translate"
+      ></textarea>
+    </div>
+    <div class="flex items-center gap-3">
+      <img
+        [src]="currentImg || selectedImgUrl"
+        alt="Selected or Current Image"
+        class="block object-cover rounded-md h-60 shadow-md"
+      />
+      <input
+        type="file"
+        (change)="onFileChange($event)"
+        formControlName="file"
+      />
+    </div>
+    <div class="flex gap-3">
+      <button
+        type="submit"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-green-700 hover:text-white"
+      >
+        {{ "Save" | translate }}
+      </button>
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-red-700 hover:text-white"
+      >
+        {{"Cancel"|translate}}
+      </button>
+    </div>
+  </form>
+</div>
+<p-toast></p-toast>

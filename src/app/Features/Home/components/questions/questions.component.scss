@@ -1,0 +1,17 @@
+::ng-deep .p-accordion-header-link{
+  flex-direction: row-reverse;
+  justify-content: space-between;
+transition: 0.3s;
+}
+::ng-deep svg{
+  padding: 4px;
+  background-color: rgb(187, 187, 187);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  color: white;
+
+}
+::ng-deep .p-accordion-header-link:hover svg {
+  background-color: #046c4e;
+}

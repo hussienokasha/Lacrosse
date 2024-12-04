@@ -1,0 +1,150 @@
+<nav
+  class="bg-white fixed border-gray-200 dark:bg-gray-900 shadow-md z-50 w-full"
+>
+  <div
+    class="container flex flex-nowrap items-center justify-between py-1 gap-3"
+  >
+    <a class="flex items-center  rtl:space-x-reverse">
+      <img
+        src="assets/images/logo(header).png"
+       class="w-20 h-20 block"
+        alt="Lacrosse Logo"
+      />
+    </a>
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <button
+        type="button"
+        class="text-white mx-3 bg-green-700 hover:bg-green-800 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center hidden lg:block"
+      >
+        {{ "Contact Us" | translate }}
+      </button>
+      <button
+        (click)="changeLanguage()"
+        type="button"
+        class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2 text-center hidden lg:block"
+      >
+        {{ languageService.lang() == "en" ? "العربية" : "en" }}
+      </button>
+      <button
+        type="button"
+        (click)="sidebarVisible = true"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
+      >
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+    >
+      <ul
+        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+        <li>
+          <a
+            [routerLink]="['/',currentLang,'home']"
+            class="block py-2 px-3 md:p-0 text-gray-900 md:bg-transparent text-2xl font-semibold"
+            routerLinkActive="text-green-700"
+            >{{ "Home" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+          [routerLink]="['/',currentLang,'about']"
+            routerLinkActive="text-green-700"
+            class="block py-2 px-3 text-nowrap md:p-0 text-gray-900 font-semibold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-2xl"
+            >{{ "About" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+          [routerLink]="['/',currentLang,'programs']"
+            routerLinkActive="text-green-700"
+            class="block py-2 px-3 md:p-0 text-gray-900 font-semibold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-2xl"
+            >{{ "Programs" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+          [routerLink]="['/',currentLang,'events']"
+            routerLinkActive="text-green-700"
+            class="block py-2 px-3 md:p-0 text-gray-900 font-semibold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-2xl"
+            >{{ "Events" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+          [routerLink]="['/',currentLang,'contact']"
+            routerLinkActive="text-green-700"
+            class="block text-nowrap py-2 px-3 md:p-0 text-gray-900 font-semibold hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-2xl"
+            >{{ "Contact" | translate }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<p-sidebar [(visible)]="sidebarVisible" [position]="dir == 'rtl'?'right':'left'">
+
+
+    <ul class="space-y-6 mt-4">
+      <li>
+        <a
+        [routerLink]="['/',currentLang,'home']"
+          routerLinkActive="text-green-700"
+          class="text-2xl hover:text-green-700 text-gray-900 dark:text-white"
+          >{{ "Home" | translate }}</a
+        >
+      </li>
+      <li>
+        <a
+        [routerLink]="['/',currentLang,'about']"
+          routerLinkActive="text-green-700"
+          class="text-2xl hover:text-green-700 text-gray-900 dark:text-white"
+          >{{ "About" | translate }}</a
+        >
+      </li>
+      <li>
+        <a
+        [routerLink]="['/',currentLang,'programs']"
+          routerLinkActive="text-green-700"
+          class="text-2xl hover:text-green-700 text-gray-900 dark:text-white"
+          >{{ "Programs" | translate }}</a
+        >
+      </li>
+      <li>
+        <a
+        [routerLink]="['/',currentLang,'events']"
+          routerLinkActive="text-green-700"
+          class="text-2xl hover:text-green-700 text-gray-900 dark:text-white"
+          >{{ "Events" | translate }}</a
+        >
+      </li>
+      <li>
+        <a
+        [routerLink]="['/',currentLang,'contact']"
+          routerLinkActive="text-green-700"
+          class="text-2xl hover:text-green-700 text-gray-900 dark:text-white"
+          >{{ "Contact" | translate }}</a
+        >
+      </li>
+    </ul>
+    <div class="flex py-4 gap-3">
+      <button
+        type="button"
+        class="text-white bg-green-700 hover:bg-green-800 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center"
+      >
+        {{ "Contact Us" | translate }}
+      </button>
+      <button
+        (click)="changeLanguage()"
+        type="button"
+        class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2 text-center"
+      >
+        {{ languageService.lang() == "en" ? "عربي" : "en" }}
+      </button>
+    </div>
+
+</p-sidebar>
+
+

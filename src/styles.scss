@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@layer tailwind-base, primeng, tailwind-utilities;
+@layer tailwind-base {
+  @import "tailwindcss/base";
+}
+
+@layer tailwind-utilities {
+  @import "tailwindcss/components";
+  @import "tailwindcss/utilities";
+}
+body {
+  background: #f7f7f7 !important;
+  font-family: "Almarai", sans-serif !important;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #046c4e;
+  border-radius: 10px;
+}
+
+
+

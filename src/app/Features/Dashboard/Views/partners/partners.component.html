@@ -1,0 +1,61 @@
+<div class="flex justify-end text-white mb-4">
+  <button class="w-16 h-16 rounded-full bg-green-700" (click)="partnerDialog()">
+    <i class="fa-solid fa-plus text-xl"></i>
+  </button>
+</div>
+
+<div class="container mx-auto py-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    @for(par of partners; track par){
+    <div
+      class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-4 flex flex-col items-center"
+    >
+    @if(!editMode || partnerToEdit.id != par.id){
+      <img
+        [src]="par.img"
+        alt="Partner Image"
+        class="w-50 h-40 object-cover rounded-md mb-4"
+      />
+    }
+    @else{
+      <div class="space-y-6 p-7">
+        @if(imgPreview){
+          <img [src]="imgPreview" alt="" class="w-full h-50 object-cover">
+        }
+        <input type="file" accept="image/*" (change)="onImgSelect($event)">
+        <div class="flex gap-2">
+          <button (click)="updatePartner()">
+            <i class="fa-solid fa-check text-3xl text-green-700"></i>
+          </button>
+          <button (click)="editMode = false">
+            <i class="fa-solid fa-xmark text-3xl text-red-600"></i>
+          </button>
+        </div>
+      </div>
+    }
+    @if(!editMode){
+
+      <div class="flex justify-between w-full mt-4" >
+        <button
+          class="flex items-center justify-center h-10 w-10 bg-green-100 text-green-600 border border-green-600 rounded-md hover:bg-green-600 hover:text-white transition-colors duration-200"
+          type="button"
+          aria-label="Edit"
+          (click)="editMode = true;partnerToEdit = par"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button
+          class="flex items-center justify-center h-10 w-10 bg-red-100 text-red-600 border border-red-600 rounded-md hover:bg-red-600 hover:text-white transition-colors duration-200"
+          type="button"
+          (click)="confirmDelete($event, par)"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    }
+    </div>
+    }
+  </div>
+</div>
+<p-toast />
+<p-confirmPopup />

@@ -1,0 +1,33 @@
+<div
+  class="container py-10"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-offset="400"
+>
+  <h1 class="text-green-700 text-4xl font-medium py-4">
+    {{ "Upcoming Events" | translate }}
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 py-6">
+    @for(e of events;track e.id){
+    <div
+      class="rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all delay-100 cursor-pointer"
+    >
+      <img [src]="e.img" alt="" class="object-cover h-64 w-full" />
+      <div class="p-4 text-center">
+        <h3 class="text-2xl text-green-700">{{ e.name }}</h3>
+        <div class="text-gray-400 text-sm">
+          
+          <p>{{ e.location }}</p>
+          <button
+            class="rounded-md py-2 text-xl px-3 bg-green-700 hover:bg-green-800 text-white my-4"
+            [routerLink]="['/',currentLang,'events', e.id]"
+          >
+            Know More
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="container">
+  @if(!footerData){
+  <div class="flex justify-end text-white">
+    <button
+      class="w-16 h-16 rounded-full bg-green-700"
+      (click)="footerDialog()"
+    >
+      <i class="fa-solid fa-plus text-xl"></i>
+    </button>
+  </div>
+
+  } @if(footerData){
+  <form [formGroup]="footerForm" class="space-y-3">
+    <p-dropdown
+      [options]="langOptions"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="Select a Language"
+      styleClass="mb-4 shadow-none"
+      formControlName="langId"
+      (onChange)="getFooterData()"
+    />
+    <div>
+      <label class="block text-lg font-semibold">{{
+        "Title" | translate
+      }}</label>
+      <input
+        type="text"
+        formControlName="title"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter linkedIn Link"
+      />
+    </div>
+    <div>
+      <label class="block text-lg font-semibold">{{
+        "linkedIn Link" | translate
+      }}</label>
+      <input
+        type="text"
+        formControlName="linkedInLink"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter linkedIn Link"
+      />
+    </div>
+    <div>
+      <label class="block text-lg font-semibold">{{
+        "Instagram Link" | translate
+      }}</label>
+      <input
+        type="text"
+        formControlName="instagramLink"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Instagram Link"
+      />
+    </div>
+    <div>
+      <label class="block text-lg font-semibold">{{"X Link (Twitter)"|translate}}</label>
+      <input
+        type="text"
+        formControlName="twitterLink"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Twitter Link"
+      />
+    </div>
+
+    <div class="flex items-center justify-between gap-3">
+      <input
+        type="file"
+        accept="image/*"
+        (change)="onImgSelect($event)"
+        formControlName="logo"
+      />
+      @if(imgPreview){
+      <img
+        [src]="imgPreview"
+        alt="Selected or Current Image"
+        class="block object-cover rounded-md h-52 w-96 shadow-md"
+      />
+      } @if(!imgPreview){
+      <img
+        [src]="footerForm.value['logo']"
+        alt="Selected or Current Image"
+        class="block object-cover rounded-md h-52 w-96 shadow-md"
+      />
+      }
+    </div>
+    <div class="flex gap-3">
+      <button
+        type="submit"
+        (click)="updateFooter()"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-green-700 hover:text-white"
+      >
+        {{"Save"|translate}}
+      </button>
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-red-700 hover:text-white"
+      >
+        {{"Cancel"|translate}}
+      </button>
+    </div>
+  </form>
+  }@else {
+  <p class="text-center font-semibold text-3xl">No footer data found.</p>
+  }
+</div>
+<p-toast></p-toast>

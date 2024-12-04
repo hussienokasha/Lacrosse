@@ -1,0 +1,91 @@
+<div class="container">
+  <form [formGroup]="achievementForm" class="space-y-3">
+    <p-dropdown
+      [options]="langOptions"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="Select a Language"
+      styleClass="mb-4 shadow-none"
+      formControlName="langId"
+      (onChange)="getAchievementData()"
+    />
+    <div>
+      <label for="title" class="block text-lg font-semibold">{{"Title"|translate}}</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Title"
+      />
+    </div>
+    <div>
+      <label for="title" class="block text-lg font-semibold"
+        >{{"Training Sites"|translate}}</label
+      >
+      <input
+        id="title"
+        type="text"
+        formControlName="trainingSites"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Title"
+      />
+    </div>
+
+    <div>
+      <label for="title" class="block text-lg font-semibold"
+        >{{"Male Students"|translate}}</label
+      >
+      <input
+        id="title"
+        type="text"
+        formControlName="maleStudents"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Male Students Number"
+      />
+    </div>
+    <div>
+      <label for="title" class="block text-lg font-semibold"
+        >{{"Female Students"|translate}}</label
+      >
+      <input
+        id="title"
+        type="text"
+        formControlName="femaleStudents"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Female Students Number"
+      />
+    </div>
+    <div>
+      <label for="title" class="block text-lg font-semibold"
+        >{{"Trainers Title"|translate}}</label
+      >
+      <input
+        id="title"
+        type="text"
+        formControlName="trainersTitle"
+        class="w-full p-1 focus:ring-0 border-green-700 rounded-md"
+        placeholder="Enter Trainers Title Number"
+      />
+    </div>
+
+    <div class="flex gap-3">
+      <button
+        type="submit"
+        (click)="updateAchievement()"
+        [disabled]="achievementForm.invalid"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-green-700 hover:text-white disabled:bg-green-300"
+      >
+        {{"Save"|translate}}
+      </button>
+      <button
+        type="button"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-red-700 hover:text-white"
+        (click)="onCancel()"
+      >
+        {{"Cancel"|translate}}
+      </button>
+    </div>
+  </form>
+</div>
+<p-toast />

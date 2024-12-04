@@ -1,0 +1,39 @@
+<div
+  class="container py-10"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-offset="400"
+>
+  <div class="flex flex-col lg:flex-row items-start justify-between gap-6">
+    <!-- Text Section -->
+    <div class="text-center md:text-left pz-3 xl:px-26">
+      <h3 class="text-xl md:text-2xl font-semibold mb-4 text-green-700">
+        {{ "About the Saudi Lacrosse Federation" | translate }}
+      </h3>
+      <p class="text-lg font-medium leading-relaxed text-gray-500">
+        {{ aboutData?.description1 }}
+      </p>
+      <br />
+      <p class="text-lg font-medium leading-relaxed text-gray-500">
+        {{ aboutData?.description2 }}
+      </p>
+      <br />
+      <p class="text-lg font-medium leading-relaxed text-gray-500">
+        {{ aboutData?.description3 }}
+      </p>
+      <button
+        type="button"
+        class="focus:outline-none text-white bg-green-700 hover:bg-green-600 rounded-lg text-xl my-6 px-5 py-2"
+      >
+        {{ "Know More" | translate
+        }}<i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+      </button>
+    </div>
+    <!-- Image Section -->
+    <img
+      [src]="aboutData?.img"
+      alt="About the Saudi Lacrosse Federation"
+      class="w-full lg:w-1/2 object-cover rounded-xl shadow-md"
+    />
+  </div>
+</div>

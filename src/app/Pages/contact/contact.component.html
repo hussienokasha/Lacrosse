@@ -1,0 +1,17 @@
+<app-baner [title]="'Contact Us'|translate"></app-baner>
+<div class="container py-10" >
+  <h1 class="text-green-700 text-4xl font-medium text-center py-8">{{"Contact Information"|translate}}</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 text-center gap-5 ">
+    <div class="px-2 py-8 shadow-xl bg-white rounded-xl transition-all duration-200 hover:-translate-y-2">
+      <i class="fa-solid fa-envelope text-green-700 text-4xl"></i>
+      <h2 class="text-green-700 text-2xl font-medium">{{"Email Address"|translate}}</h2>
+      <p class="text-xl">{{contactData?.email}}</p>
+    </div>
+    <div class="px-2 py-8 shadow-xl bg-white rounded-xl transition-all duration-200 hover:-translate-y-2">
+      <i class="fa-solid fa-location-dot text-green-700 text-4xl"></i>
+      <h2 class="text-green-700 text-2xl font-medium">{{"Address"|translate}}</h2>
+      <p class="text-xl">{{contactData?.address}}</p>
+    </div>
+  </div>
+</div>
+<app-contact-us></app-contact-us>

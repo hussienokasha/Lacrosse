@@ -1,0 +1,40 @@
+<div>
+  <form class="space-y-3" [formGroup]="quistionsForm">
+    <p-selectButton
+      [options]="langOptions"
+      formControlName="lang"
+      optionLabel="label"
+      optionValue="value"
+    />
+    <input
+      type="text"
+      class="w-full rounded-md focus:ring-0 focus:border-green-700"
+      placeholder="Question"
+      formControlName="ques"
+    />
+    <input
+      type="text"
+      class="w-full rounded-md focus:ring-0 focus:border-green-700"
+      placeholder="Answer"
+      formControlName="answer"
+    />
+
+    <div class="flex gap-3">
+      <button
+        (click)="addQuestion()"
+        [disabled]="!quistionsForm.valid"
+        type="submit"
+        class="w-full rounded-md text-white bg-green-700 border p-1 border-green-700  invalid:bg-green-300"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100"
+        (click)="dialofRef.close()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

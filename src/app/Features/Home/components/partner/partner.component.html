@@ -1,0 +1,37 @@
+<div
+  class="container"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-offset="400"
+>
+  <h3 class="text-green-700 text-5xl font-semibold py-5">
+    {{ "Our Partners" | translate }}
+  </h3>
+  <p class="text-lg text-gray-500">
+    {{ homeContent?.titlePartner }}
+  </p>
+
+  <div class="py-10">
+    <div class="scroll-container">
+      <div class="scroll-content">
+        @for(par of partners;track par.id){
+
+        <ng-container>
+          <img [src]="par.img" alt="" class="w-40" />
+        </ng-container>
+        } @for(par of partners;track par.id){
+
+        <ng-container>
+          <img [src]="par.img" alt="" class="w-40" />
+        </ng-container>
+        } @for(par of partners;track par.id){
+
+        <ng-container>
+          <img [src]="par.img" alt="" class="w-40" />
+        </ng-container>
+        }
+        <!-- Duplicate the content for seamless scrolling -->
+      </div>
+    </div>
+  </div>
+</div>

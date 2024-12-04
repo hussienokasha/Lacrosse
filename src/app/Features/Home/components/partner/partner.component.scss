@@ -1,0 +1,33 @@
+
+:root {
+  --scroll-direction: -100%; /* Default for LTR */
+}
+
+[dir="rtl"] {
+  --scroll-direction: 100%; /* Reverse for RTL */
+}
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 1rem;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    
+    transform: translateX(-100%);
+  }
+}
+
+img {
+  display: inline-block;
+}

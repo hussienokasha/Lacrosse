@@ -1,0 +1,74 @@
+
+
+<div class="container mx-auto p-5 space-y-6">
+
+  <div class="flex items-center justify-between">
+    <p-dropdown
+      [options]="langOptions"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="Select a Language"
+      styleClass="mb-4 shadow-none"
+      [formControl]="selectedLang"
+      (onChange)="getAllEvents()"
+    />
+    <div class="flex justify-end text-white">
+      <button class="w-16 h-16 rounded-full bg-green-700" (click)="addEventDialog()">
+        <i class="fa-solid fa-plus text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="space-y-8">
+    @for(e of events;track e.id){
+
+    <div
+      class="flex flex-col lg:flex-row items-start lg:items-center gap-6 bg-white shadow-lg rounded-lg p-6 border border-gray-200 relative group transition-all duration-150"
+    >
+      <div class="end-0 absolute gap-3 top-0 p-3 hidden  group-hover:flex ">
+        <button
+          class="rounded-md h-10 w-10 border border-green-600 hover:bg-green-600 hover:text-white text-green-600"
+          type="button"
+          (click)="editEventDialog(e.id)"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button
+        (click)="confirmDelete($event,e)"
+          class="rounded-md h-10 w-10 border border-red-600 hover:bg-red-600 hover:text-white text-red-600"
+          type="button"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+      <!-- Event Image -->
+      <div class="flex-shrink-0">
+        <img
+          [src]="e.img"
+          alt="{{ e.name }}"
+          class="w-52 h-52 object-cover rounded-lg"
+        />
+      </div>
+      <!-- Event Content -->
+      <div class="flex flex-col space-y-4">
+        <h2 class="text-xl font-bold text-gray-800">{{ e.name }}</h2>
+        <p class="text-sm text-gray-500">
+          <!-- <strong>{{"When"|translate}}:</strong> {{ e.appointment }} -->
+        </p>
+        <p class="text-sm text-gray-500">
+          <strong>{{"Where"|translate}}:</strong> {{ e.location }}
+        </p>
+        <p class="text-sm text-gray-600">{{ e.description }}</p>
+        <div>
+          <span class="text-sm text-gray-500"
+            ><strong>{{"Time"|translate}}:</strong> {{ e.fromTime |timeFormat }} - {{e.toTime |timeFormat}}</span
+          >
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<p-confirmDialog />
+<p-toast />

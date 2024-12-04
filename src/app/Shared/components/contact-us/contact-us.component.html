@@ -1,0 +1,72 @@
+<div class="py-20 bg-white">
+  <div
+    class="container py-20"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-offset="400"
+  >
+    <h1 class="text-green-700 font-medium text-5xl">
+      {{ "Contact Us" | translate }}
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 py-5 items-start gap-20">
+      <div>
+        <form action="" class="space-y-5">
+          <div class="relative">
+            <i
+              class="fa-solid fa-user absolute start-3 top-50 text-green-700 translate-y-1/2"
+            ></i>
+            <input
+              type="text"
+              [placeholder]="'Name' | translate"
+              class="p-1 rounded-md focus:ring-0 border-gray-300 hover:border-gray-400 focus:border-green-700 focus:outline-none ps-8 w-full"
+            />
+          </div>
+          <div class="flex gap-7">
+            <div class="relative w-full">
+              <input
+                type="text"
+                [placeholder]="'Phone' | translate"
+                class="p-1 rounded-md focus:ring-0 border-gray-300 hover:border-gray-400 focus:border-green-700 focus:outline-none ps-8 w-full"
+              />
+              <i
+                class="fa-solid fa-phone absolute start-3 top-50 text-green-700 translate-y-1/2"
+              ></i>
+            </div>
+            <div class="relative w-full">
+              <input
+                type="text"
+                [placeholder]="'Email' | translate"
+                class="p-1 rounded-md focus:ring-0 border-gray-300 hover:border-gray-400 focus:border-green-700 focus:outline-none ps-8 w-full"
+              />
+              <i
+                class="fa-regular fa-envelope absolute start-3 top-50 text-green-700 translate-y-1/2"
+              ></i>
+            </div>
+          </div>
+          <textarea
+            rows="5"
+            class="p-1 rounded-md focus:ring-0 border-gray-300 hover:border-gray-400 focus:border-green-700 focus:outline-none w-full"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100 hover:bg-green-700 hover:text-white"
+          >
+            {{ "Send" | translate }}
+          </button>
+        </form>
+      </div>
+      <div class="text-center space-y-5 -mt-32">
+        <img [src]="contactData?.headerLogo" alt="" />
+        <h1 class="text-green-700 text-4xl font-semibold">
+          {{ contactData?.title }}
+        </h1>
+        <h2 class="text-gray-600 text-4xl font-semibold">
+          {{ contactData?.name}}
+        </h2>
+        <p class="text-xl text-gray-400">
+          {{contactData?.description}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

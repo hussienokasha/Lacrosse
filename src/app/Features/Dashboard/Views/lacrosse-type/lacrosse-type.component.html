@@ -1,0 +1,130 @@
+<div class="flex justify-between items-center">
+  <p-dropdown
+    [options]="langOptions"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Select a Language"
+    styleClass="mb-4 shadow-none"
+    [formControl]="selectedLang"
+    (onChange)="getTypes()"
+  />
+  <div class="flex justify-end text-white mb-4">
+    <button class="w-16 h-16 rounded-full bg-green-700" (click)="openDialog()">
+      <i class="fa-solid fa-plus text-xl"></i>
+    </button>
+  </div>
+</div>
+<div class="max-w-full overflow-x-scroll">
+
+
+  <p-table
+
+    [columns]="cols"
+    [value]="Types!"
+    dataKey="id"
+    editMode="row"
+    #td
+    [tableStyle]="{'min-width':'1200px'}"
+
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        @for(col of columns;track col){
+        <th>
+          {{ col.header |translate }}
+        </th>
+        }
+        <th>{{"Options"|translate}}</th>
+      </tr>
+    </ng-template>
+    <ng-template
+      pTemplate="body"
+      let-rowData
+      let-columns="columns"
+      let-editing="editing"
+    >
+      <tr [pEditableRow]="rowData">
+        @for(col of columns;track col){
+        <td>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              @if(col.field == 'img'){
+              <div class="flex justify-between">
+                <input
+                  class="w-full rounded-md p-1 focus:right-0"
+                  type="file"
+                  (change)="onFileChange($event)"
+                />
+                @if(imgPreview){
+                <img
+                  [src]="imgPreview"
+                  alt=""
+                  class="w-28 h-28 rounded-md object-cover"
+                />
+                }
+              </div>
+              } @else {
+              <input
+                class="w-full rounded-md p-1 focus:right-0 border border-green-700"
+                type="text"
+                [(ngModel)]="rowData[col.field]"
+              />
+              }
+            </ng-template>
+            <ng-template pTemplate="output">
+              @if(col.field == 'img'){
+              <img
+                src="{{ rowData[col.field] }}"
+                class="w-52 h-32 rounded-lg object-cover"
+              />
+              } @else {
+              <p>{{ rowData[col.field] }}</p>
+              }
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        }
+        <td>
+          <div class="flex items-center gap-2">
+            @if(!editing){
+            <button
+              class="rounded-md h-10 w-10 border border-green-600 hover:bg-green-600 hover:text-white text-green-600"
+              type="button"
+              pInitEditableRow
+              (click)="td.initRowEdit(rowData); onRowEditInit(rowData)"
+            >
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            } @if(editing){
+            <button
+              type="button"
+              pSaveEditableRow
+              (click)="updateType(rowData)"
+            >
+              <i class="fa-solid fa-check text-green-700 text-xl"></i>
+            </button>
+            } @if(editing){
+            <button
+              type="button"
+              pCancelEditableRow
+              (click)="onRowEditCancel(rowData, td)"
+            >
+              <i class="fa-solid fa-xmark text-xl text-red-600"></i>
+            </button>
+            } @if(!editing){
+            <button
+              class="rounded-md h-10 w-10 border border-red-600 hover:bg-red-600 hover:text-white text-red-600"
+              (click)="confirmDelete($event, rowData)"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            }
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog />
+<p-toast />

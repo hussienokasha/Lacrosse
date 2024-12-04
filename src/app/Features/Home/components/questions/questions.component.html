@@ -1,0 +1,19 @@
+<div class="container"  data-aos="fade-up"
+data-aos-duration="1000"
+data-aos-offset="400">
+  <h1 class="text-green-700 text-center text-5xl font-semibold py-7">
+    {{ "Common Questions" | translate }}
+  </h1>
+
+  <div>
+    <p-accordion [activeIndex]="0">
+       @for(q of questions;track q){
+      <p-accordionTab [header]="q.ques" tabStyleClass="transition duration-100 hover:shadow-md">
+        <p class="m-0">
+          {{ q.answer }}
+        </p>
+      </p-accordionTab>
+      }
+    </p-accordion>
+  </div>
+</div>

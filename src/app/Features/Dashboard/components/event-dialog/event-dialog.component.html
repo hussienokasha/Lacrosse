@@ -1,0 +1,123 @@
+<div>
+  <form [formGroup]="eventsForm" (ngSubmit)="addOrUpdate()" class="space-y-3">
+    <p-dropdown
+      [options]="langOptions"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="Select a Language"
+      styleClass="mb-4 shadow-none"
+      formControlName="LangId"
+    />
+    <div class="flex gap-3">
+      <input
+        formControlName="Name"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Event Name"
+      />
+      <input
+        formControlName="Location"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Location"
+      />
+    </div>
+
+
+
+
+    <div class="flex gap-3">
+      <input
+        formControlName="Longitude"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Longitude"
+      />
+      <input
+        formControlName="latitude"
+        type="text"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700 sta"
+        placeholder="Latitude"
+      />
+    </div>
+    <div class="flex gap-3">
+      <div class="w-full">
+        <label for="" class="block">From</label>
+        <input type="date" class="w-full rounded-md focus:border-green-700" formControlName="FromDay" />
+      </div>
+      <div class="w-full">
+        <label for="" class="block">To</label>
+        <input type="date" class="w-full rounded-md focus:border-green-700" formControlName="ToDay" />
+      </div>
+    </div>
+    <div class="flex gap-3">
+      <div class="w-full">
+        <label for="" class="block">From</label>
+        <input type="time"  class="w-full rounded-md focus:border-green-700"  formControlName="FromTime" />
+      </div>
+      <div class="w-full">
+        <label for="" class="block">To</label>
+        <input type="time" class="w-full rounded-md focus:border-green-700" formControlName="ToTime" />
+      </div>
+    </div>
+
+    <!-- Notes -->
+
+    <div>
+      <textarea
+        formControlName="Description"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Description"
+        rows="4"
+      ></textarea>
+    </div>
+    <div>
+      <textarea
+        formControlName="Notes"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+        placeholder="Notes"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <!-- Image Upload -->
+    <div class="border rounded-md p-3 flex justify-between items-center">
+      <input
+        id="file"
+        formControlName="file"
+        (change)="onFileChange($event)"
+        type="file"
+        accept="image/*"
+        class="w-full rounded-md focus:ring-0 focus:border-green-700"
+      />
+      @if(currentImage){
+
+        <img [src]="currentImage"  class="rounded-lg w-32 h-32 object-cover">
+      }
+      @if(imgFile){
+      <img
+        [src]="imgPreview"
+        alt=""
+        class="rounded-lg w-32 h-32 object-cover"
+      />
+      }
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex gap-3">
+      <button
+        type="submit"
+        class="w-full rounded-md text-white bg-green-700 border p-1 border-green-700 transition duration-100"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="w-full rounded-md text-green-700 border p-1 border-green-700 transition duration-100"
+        (click)="ref.close()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
